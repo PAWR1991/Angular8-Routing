@@ -14,9 +14,11 @@ import { ServersService } from './servers/servers.service';
 import { Routes, RouterModule } from '@angular/router';
 
 //localhost:4200/user
+// ':'{name} is a param that can change
 const appRoutes: Routes =[ 
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersComponent},
+  {path: 'users/:id', component: UserComponent},
   {path: 'servers', component: ServersComponent},
 ];
 
