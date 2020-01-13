@@ -29,8 +29,10 @@ const appRoutes: Routes =[
   // redirectTo uses a route path
   //'**' is the wildcard(catching all unknown routes) and make sure it is the last path in the array
   //because angular reads the route array in order top to bottom (0-1)
-  {path: '**', redirectTo: 'not-found'}
+  {path: '**', redirectTo: '/not-found', pathMatch:'full'}
 ];
+// By default, Angular matches paths by prefix. That means, that the following route will match both /recipes  and just /
+//pathMatch 'full' only now angular will look at /recipes
 
 @NgModule({
   declarations: [
