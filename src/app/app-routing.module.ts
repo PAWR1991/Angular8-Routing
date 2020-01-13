@@ -9,6 +9,7 @@ import { ServersService } from './servers/servers.service';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 
 //localhost:4200/user
 // ':'{name} is a param that can change
@@ -22,7 +23,7 @@ const appRoutes: Routes =[
     canActivateChild: [AuthGuard],
     component: ServersComponent, children:[
       {path: ':id', component: ServerComponent},
-      {path: ':id/edit', component: EditServerComponent}
+      {path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]}
     ]},
     {path: 'not-found', component:PageNotFoundComponent},
     // redirectTo uses a route path
