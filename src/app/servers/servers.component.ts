@@ -21,9 +21,11 @@ export class ServersComponent implements OnInit {
   /**
    * router.navigate doesn't know the relative route too unlike routerLink
    * routerLink knows where it is to the current url
+   * 'preserve' the current params to be pass on the url
+   * 'merge' preserve the current params and adds any new ones to the url
    */
   onLoadServers(){
-    this.router.navigate(['servers'], {relativeTo: this.route});
+    this.router.navigate(['servers'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
 }
